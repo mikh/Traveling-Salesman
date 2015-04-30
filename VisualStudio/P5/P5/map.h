@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <time.h>
+#include <math.h>
 
 using namespace std;
 
@@ -17,15 +19,15 @@ public:
 	vector<City*> map;
 	vector<City*> path_list;
 	vector<vector<City*> > p_trix;
-	vector<vector<int> > d_trix;
+	vector<vector<double> > d_trix;
 
-	int roads;
-	float max_distance;
+	double roads;
+	double max_distance;
 
 
 
 	Map();
-	void add_road(string s_city, string e_city, int distance);
+	void add_road(string s_city, string e_city, double distance);
 	void print_statistics();
 	bool set_start_city(string name);
 
@@ -42,7 +44,7 @@ private:
 
 
 	City* find_city(string city_name, vector<City*> &list);
-	int find_distance(string city_name, vector<City*> &c_list, vector<int> &d_list);
+	double find_distance(string city_name, vector<City*> &c_list, vector<double> &d_list);
 	int find_index(string city_name, vector<City *> &list);
 
 	void add_city(string &city_name);
@@ -70,18 +72,21 @@ Map::Map(){
 void Map::FloydWarshall(){
 	printf("Running Floyd-Warshall Algorithm\n");
 	vector<vector<City*> > p_trix_t;
-	vector<vector<int> > d_trix_t;
+	vector<vector<double> > d_trix_t;
 	int N = map.size();
 
 	//initialize matrices
 	printf("Initializing D0 and P0 matrices...\n");
+	double max_distance = 0;
 	for (int ii = 0; ii < N; ii++){
 		printf("%.2f%% done\r", (float)ii / (float)N * 100);
 		cout << flush;
 		vector<City *> p_row;
-		vector<int> d_row;
+		vector<double> d_row;
 		for (int jj = 0; jj < N; jj++){
-			int dd = find_distance(map[jj]->name, map[ii]->o_dest, map[ii]->o_dist);
+			double dd = find_distance(map[jj]->name, map[ii]->o_dest, map[ii]->o_dist);
+			if (max_distance < dd)
+				max_distance = dd;
 			if (ii == jj){
 				d_row.push_back(0);
 				p_row.push_back(NULL);
@@ -99,18 +104,46 @@ void Map::FloydWarshall(){
 		p_trix_t.push_back(p_row);
 	}
 	printf("100.00%% done\n");
+	max_distance++;
+	for (int ii = 0; ii < N; ii++){
+		printf("%.2f%% done\r", (float)ii / (float)N * 100);
+		cout << flush;
+		for (int jj = 0; jj < N; jj++){
+			if (d_trix_t[ii][jj] == -1)
+				d_trix_t[ii][jj] = max_distance;
+		}
+	}
+	printf("100.00%% done\n");
 
-	
+	bool timer_started = false, timer_finished = false;
+	time_t timer_start, timer_end;
+	double cur_percent = 0, save_percent = 0;
+	time(&timer_start);
+
 	printf("Running algorithm. Requires %.0f iterations.\n", (double)N*(double)N*(double)N);
 	for (int kk = 0; kk < N; kk++){
-		printf("%.2f%% done\r", (float)kk / (float)N * 100);
+		cur_percent = (float)kk / (float)N * 100;
+		time(&timer_end);
+		double seconds = difftime(timer_end, timer_start);
+		double increments = (100.0 - cur_percent) / (cur_percent - save_percent);
+		seconds *= increments;
+		double minutes = (int)seconds / 60;
+		seconds = (int)seconds % 60;
+		double hours = (int)minutes / 60;
+		minutes = (int)minutes % 60;
+		timer_start = timer_end;
+		save_percent = cur_percent;
+		printf("%.2f%% done %2d:%2d:%2d time remaining                \r", cur_percent, (int)hours, (int) minutes, (int)seconds);
 		cout << flush;
+		
+
 		vector<vector<City*> > p_trix_next(p_trix_t);
-		vector<vector<int> > d_trix_next(d_trix_t);
+		vector<vector<double> > d_trix_next(d_trix_t);
 		for (int ii = 0; ii < N; ii++){
 			for (int jj = 0; jj < N; jj++){
-				int d1 = d_trix_t[ii][jj];
-				int d2 = d_trix_t[ii][kk] + d_trix_t[kk][jj];
+				double d1 = d_trix_t[ii][jj];
+				double d2 = d_trix_t[ii][kk] + d_trix_t[kk][jj];
+				
 				if (d1 <= d2){
 					d_trix_next[ii][jj] = d1;
 					p_trix_next[ii][jj] = p_trix_t[ii][jj];
@@ -185,13 +218,13 @@ bool Map::load_FW_results(string meta_file, string distance_file, string pred_fi
 		ii++;
 		printf("%0.2f%% done\r", (float)ii / (float)map.size()*100.0);
 		cout << flush;
-		vector<int> d_row;
+		vector<double> d_row;
 		vector<City *> p_row;
 		string number = "";
 		for (int ii = 0; ii < line.size(); ii++){
 			if (line[ii] == ' '){
 				if (number.length() > 0){
-					d_row.push_back(atoi(number.c_str()));
+					d_row.push_back(strtod(number.c_str(), NULL));
 					number = "";
 				}
 			}
@@ -445,7 +478,7 @@ bool Map::is_city_null(City &city){
 	return false;
 }
 
-void Map::add_road(string s_city, string e_city, int distance){
+void Map::add_road(string s_city, string e_city, double distance){
 	roads++;
 	max_distance += distance;
 	City* city_s = find_city(s_city, map);
@@ -474,7 +507,7 @@ City* Map::find_city(string city_name, vector<City*> &list){
 	return NULL;
 }
 
-int Map::find_distance(string city_name, vector<City*> &c_list, vector<int> &d_list){
+double Map::find_distance(string city_name, vector<City*> &c_list, vector<double> &d_list){
 	for (int ii = 0; ii < c_list.size(); ii++){
 		if (c_list[ii]->name.compare(city_name) == 0)
 			return d_list[ii];

@@ -60,7 +60,7 @@ void load_map_file(string filename, Map &map){
 		string city1 = line.substr(0, 4);
 		string city2 = line.substr(9, 4);
 		string distance = line.substr(15);
-		map.add_road(city1, city2, atoi(distance.c_str()));
+		map.add_road(city1, city2, strtod(distance.c_str(), NULL));
 	}
 	printf("100%% percent done\n");
 

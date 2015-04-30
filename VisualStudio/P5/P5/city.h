@@ -16,18 +16,18 @@ public:
 
 	//Bellman Ford variables
 	City *pred;
-	int pred_dist;
+	double pred_dist;
 
 	vector<City*> o_dest;	//cities with paths from this city
-	vector<int> o_dist;
+	vector<double> o_dist;
 
 	vector<City*> i_dest;	//cities with paths to this city
-	vector<int> i_dist;
+	vector<double> i_dist;
 
 	City();
 	City(string c_name, int id);
-	bool add_destination(City *dest, int dist);
-	bool add_origin(City *dest, int dist);
+	bool add_destination(City *dest, double dist);
+	bool add_origin(City *dest, double dist);
 
 private:
 	City* find_city(string &city_name, vector<City*> &list);
@@ -49,7 +49,7 @@ City::City(string c_name, int id){
 
 
 
-bool City::add_destination(City* dest, int dist){
+bool City::add_destination(City* dest, double dist){
 	City* c = find_city(dest->name, o_dest);
 	if (c != NULL){
 		return false;
@@ -60,7 +60,7 @@ bool City::add_destination(City* dest, int dist){
 	return true;
 }
 
-bool City::add_origin(City* dest, int dist){
+bool City::add_origin(City* dest, double dist){
 	City* c = find_city(dest->name, i_dest);
 	if (c != NULL){
 		return false;
