@@ -54,13 +54,16 @@ void load_map_file(string filename, Map &map){
 		line_count++;
 		if (line_count % percentage == 0){
 			percent++;
-			printf("%d%% percent done\n", percent);
+			printf("%d%% percent done\r", percent);
+			cout << flush;
 		}
 		string city1 = line.substr(0, 4);
 		string city2 = line.substr(9, 4);
 		string distance = line.substr(15);
 		map.add_road(city1, city2, atoi(distance.c_str()));
 	}
+	printf("100%% percent done\n");
+
 
 	infile.close();
 }

@@ -1,29 +1,29 @@
-﻿Build started 4/17/2015 7:30:58 PM.
+﻿Build started 4/29/2015 7:24:54 PM.
      1>Project "D:\EC527\EC330\HW7\Solutions\P5\VisualStudio\P5\P5\P5.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\city.h(74): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(140): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(142): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(184): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(203): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(263): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(274): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(324): warning C4018: '>=' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(340): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(352): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(358): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(144): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(147): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(191): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(210): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(271): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(282): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(332): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(348): warning C4018: '<' : signed/unsigned mismatch
      1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(360): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(361): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(388): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(391): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(411): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(460): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(468): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(476): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(493): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(501): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(366): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(369): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(370): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(398): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(401): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(421): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(470): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(478): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(486): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(503): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\ec527\ec330\hw7\solutions\p5\visualstudio\p5\p5\map.h(511): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\EC527\EC330\HW7\Solutions\P5\VisualStudio\P5\Debug\P5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\EC527\EC330\HW7\Solutions\P5\VisualStudio\P5\Debug\P5.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\EC527\EC330\HW7\Solutions\P5\VisualStudio\P5\Debug\P5.lib" /MACHINE:X86 Debug\main.obj
          P5.vcxproj -> D:\EC527\EC330\HW7\Solutions\P5\VisualStudio\P5\Debug\P5.exe
@@ -31,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:18.10
+Time Elapsed 00:00:03.65
