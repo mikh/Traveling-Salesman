@@ -104,7 +104,7 @@ void Map::FloydWarshall(){
 		p_trix_t.push_back(p_row);
 	}
 	printf("100.00%% done\n");
-	max_distance++;
+	max_distance*= max_distance;
 	for (int ii = 0; ii < N; ii++){
 		printf("%.2f%% done\r", (float)ii / (float)N * 100);
 		cout << flush;
@@ -276,7 +276,7 @@ bool Map::greedy_pathing(){
 
 	printf("Starting greedy pathing. Start City = %s. %d cities remaining.\n", cur_city->name.c_str(), remaining_city_list.size());
 	
-	if (!load_FW_results("meta_file.txt", "distance_file.txt", "pred_file.txt")){
+	if (!load_FW_results("meta_file.txt", "distance_matrix.txt", "pred_matrix.txt")){
 		FloydWarshall();
 		save_FW_results("meta_file.txt", "distance_matrix.txt", "pred_matrix.txt");
 	}
