@@ -181,11 +181,15 @@ void Map::save_FW_results(string meta_file, string distance_file, string pred_fi
 			f_d << d_trix[ii][jj] << " ";
 			if (p_trix[ii][jj] != NULL)
 				f_p << p_trix[ii][jj]->ID << " ";
+			else
+				f_p << "-1" << " ";
 		}
 		
 		f_d << d_trix[ii][d_trix[ii].size()-1] << "\n";
 		if (p_trix[ii][p_trix[ii].size() - 1] != NULL)
 			f_p << p_trix[ii][p_trix[ii].size() - 1]->ID << "\n";
+		else
+			f_p << "-1" << "\n";
 	}
 	printf("100.00%% done\n");
 
@@ -243,7 +247,11 @@ bool Map::load_FW_results(string meta_file, string distance_file, string pred_fi
 		for (int ii = 0; ii < line.size(); ii++){
 			if (line[ii] == ' '){
 				if (number.length() > 0){
-					p_row.push_back(map[atoi(number.c_str())]);
+					int p_index = atoi(number.c_str());
+					if (p_index != -1)
+						p_row.push_back(map[p_index]);
+					else
+						p_row.push_back(NULL);
 					number = "";
 				}
 			}
@@ -252,7 +260,11 @@ bool Map::load_FW_results(string meta_file, string distance_file, string pred_fi
 			}
 		}
 		if (number.length() > 0){
-			p_row.push_back(map[atoi(number.c_str())]);
+			int p_index = atoi(number.c_str());
+			if (p_index != -1)
+				p_row.push_back(map[p_index]);
+			else
+				p_row.push_back(NULL);
 			number = "";
 		}
 
